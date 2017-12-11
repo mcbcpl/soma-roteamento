@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../app-route/app-location.html">
 
 <dom-module id="soma-roteamento">
   <template>
@@ -8,6 +9,9 @@
       }
     </style>
     <h2>Hello [[prop1]]!</h2>
+
+    <app-location route="{{route}}" use-hash-as-path></app-location>
+    
   </template>
 
   <script>

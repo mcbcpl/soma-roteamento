@@ -3,7 +3,8 @@
   "description": "mapear as rotas definidas pelo usuario",
   "main": "soma-roteamento.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "app-route": "PolymerElements/app-route#^2.0.3"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
