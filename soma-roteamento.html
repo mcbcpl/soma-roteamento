@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="soma-roteamento">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `soma-roteamento`
+     * mapear as rotas definidas pelo usuario
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class SomaRoteamento extends Polymer.Element {
+      static get is() { return 'soma-roteamento'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'soma-roteamento'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(SomaRoteamento.is, SomaRoteamento);
+  </script>
+</dom-module>
