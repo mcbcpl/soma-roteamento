@@ -1,5 +1,10 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../app-route/app-location.html">
+<link rel="import" href="../app-route/app-route.html">
+<link rel="import" href="../iron-selector/iron-selector.html">
+
+
+<link rel="import" href="soma-pages.html">
 
 <dom-module id="soma-roteamento">
   <template>
@@ -11,7 +16,22 @@
     <h2>Hello [[prop1]]!</h2>
 
     <app-location route="{{route}}" use-hash-as-path></app-location>
-    
+
+    <app-route route="{{route}}"
+                  pattern="/:category"
+                  data="{{categoryData}}"
+                  tail="{{categoryTail}}"></app-route>
+
+    <nav>
+      <!-- nav menu -->
+      <!-- make sure this is a one way binding or wacky things will happen -->
+      <iron-selector selected="[[categoryData.category]]" attr-for-selected="data-page">
+        <a data-page="art" href="#/art/list">Art</a>
+        <a data-page="film" href="#/film/list">Film</a>
+        <a data-page="photo" href="#/photo/list">Photo</a>
+      </iron-selector>
+    </nav>
+
   </template>
 
   <script>

@@ -1,0 +1,39 @@
+<link rel="import" href="../app-route/app-route.html">
+
+<dom-module id="soma-pages">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <app-route route="{{route}}"
+               pattern="/list"
+               active="{{listActive}}"></app-route>
+
+    <app-route route="{{route}}"
+               pattern="/posts/:slug"
+               active="{{postsActive}}"
+               data="{{postsData}}"></app-route>
+
+  </template>
+
+  <script>
+    class SomaPages extends Polymer.Element {
+      static get is() { return 'soma-pages'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'soma-pages'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(SomaPages.is, SomaPages);
+  </script>
+</dom-module>
