@@ -1,0 +1,30 @@
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../iron-image/iron-image.html">
+
+<dom-module id="list-page">
+
+  <template>
+
+    <style>
+      :host {
+        display: none;
+      }
+    </style>
+  </template>
+
+  <script>
+    class ListPage extends Polymer.Element {
+      static get is() { return 'list-page'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'list-page'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ListPage.is, ListPage);
+  </script>
+</dom-module>
