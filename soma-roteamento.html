@@ -12,16 +12,46 @@
       :host {
         display: block;
       }
+
+      a {
+        color: black;
+        text-decoration: none;
+        margin-right: 8px;
+        font-size: 18px;
+      }
+
+      .iron-selected {
+        text-decoration: underline;
+      }
+
+      nav {
+        height: 65px;
+        margin: 0 auto;
+        text-align: right;
+      }
+
+      main {
+        width: 900px;
+        margin: 0 auto;
+        font-size: 21px;
+        font-family: Georgia;
+      }
+
+      h2 {
+        font-family: sans-serif;
+      }
+
     </style>
-    
-    <h2>Hello [[prop1]]!</h2>
+
+    <h2>[[titulo]]!</h2>
 
     <app-location route="{{route}}" use-hash-as-path></app-location>
 
     <app-route route="{{route}}"
                   pattern="/:category"
                   data="{{categoryData}}"
-                  tail="{{categoryTail}}"></app-route>
+                  tail="{{categoryTail}}">
+    </app-route>
 
     <nav>
       <!-- nav menu -->
@@ -32,6 +62,12 @@
         <a data-page="photo" href="#/photo/list">Photo</a>
       </iron-selector>
     </nav>
+
+    <main>
+      <soma-pages route="{{categoryTail}}"
+                  category="{{categoryData.category}}">
+      </soma-pages>
+    </main>
 
   </template>
 
@@ -48,12 +84,26 @@
       static get is() { return 'soma-roteamento'; }
       static get properties() {
         return {
-          prop1: {
+          titulo: {
             type: String,
-            value: 'soma-roteamento'
+            value: 'Soma Route',
+            observer: '_updateScroll'
           }
-        };
+        }
       }
+
+      //lyfecycle
+      attached() {
+        if (!this.route.path) {
+          this.set('route.path', '/art/list');
+          console.log('SomaRoteamento created callback called');
+        }
+      }
+
+      _updateScroll() {
+        window.scroll(0, 0);
+      }
+
     }
 
     window.customElements.define(SomaRoteamento.is, SomaRoteamento);
