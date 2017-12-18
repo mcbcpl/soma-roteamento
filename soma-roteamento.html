@@ -92,21 +92,28 @@
 
           category: {
             type: String,
-            value: 'Soma Route'
+            value: 'Soma Route',
+            reflectToAttibute: true,
+            observer: 'onchange(category)'
           }
         }
       }
 
       //lyfecycle
-      attached() {
+      /*attached() {
         if (!this.route.path) {
           this.set('route.path', '/art/list');
           console.log('SomaRoteamento created callback called');
         }
-      }
+      }*/
 
       _updateScroll() {
         window.scroll(0, 0);
+      }
+
+      onchange(category) {
+        console.log(category)
+
       }
 
     }

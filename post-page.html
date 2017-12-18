@@ -49,14 +49,8 @@
       static get is() { return 'post-page'; }
       static get properties() {
         return {
-          title: {
-            type: String,
-            value: 'post-page'
-          },
-
           post: {
-            type: String,
-            value: 'post-page'
+            type: String
           },
 
           active: {
@@ -74,7 +68,7 @@
       }
 
       _computeURL(post) {
-        //return 'data/posts/${post}.json';
+        return 'data/posts/${post}.json';
       }
     }
 

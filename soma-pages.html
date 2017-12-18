@@ -62,18 +62,21 @@
       static get is() { return 'soma-pages'; }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'soma-pages',
-            observer: '_lockScroll(isLoading)'
+          category: {
+            type: String
           },
 
-          category: {
-            type: String,
-            value: 'soma-pages'
+          route: {
+            type: String
           }
         }
       }
+
+      static get observers() {
+  		return [
+    		'_lockScroll(isLoading)'
+  		]
+	  }
 
       _lockScroll(isLoading) {
         if (isLoading) {

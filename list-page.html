@@ -62,14 +62,8 @@
       static get is() { return 'list-page'; }
       static get properties() {
         return {
-          title: {
-            type: String,
-            value: 'list-page'
-          },
-
           category: {
-            type: String,
-            value: 'art'
+            type: String
           },
 
           active: {
@@ -87,7 +81,7 @@
       }
 
       _computeURL(category) {
-        return 'data/list/art.json'; //${category}.json';
+        return 'data/list/${category}.json';
       }
     }
 
